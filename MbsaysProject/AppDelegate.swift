@@ -7,15 +7,47 @@
 //
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var centerContainer: MMDrawerController?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        
+        
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let centerViewController = mainStoryboard.instantiateViewController(withIdentifier: "MainPageViewController") as! MainPageViewController
+        let leftViewController = mainStoryboard.instantiateViewController(withIdentifier: "LeftSideMenuViewController") as! LeftSideMenuViewController
+        
+        
+        let leftSideNav = UINavigationController(rootViewController: leftViewController)
+        let centerNav = UINavigationController(rootViewController: centerViewController)
+        
+        centerContainer = MMDrawerController(center: centerNav, leftDrawerViewController: leftSideNav)
+        
+        centerContainer!.openDrawerGestureModeMask = MMOpenDrawerGestureMode.panningCenterView
+        centerContainer!.closeDrawerGestureModeMask = MMCloseDrawerGestureMode.panningCenterView
+        window!.rootViewController = centerContainer
+        window!.makeKeyAndVisible()
+      
+        
+        
+//        // Sets background to a blank/empty image
+//        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+//        // Sets shadow (line below the bar) to a blank image
+//        UINavigationBar.appearance().shadowImage = UIImage()
+//        // Sets the translucent background color
+//        UINavigationBar.appearance().backgroundColor = .clear
+//        // Set translucent. (Default value is already true, so this can be removed if desired.)
+//        UINavigationBar.appearance().isTranslucent = true
+        
+        FirebaseApp.configure()
         return true
     }
 

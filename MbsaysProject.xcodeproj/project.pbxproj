@@ -7,21 +7,65 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5335D7F7D6620867ACFC515F /* Pods_MbsaysProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABE06683C5A2A971D805765C /* Pods_MbsaysProject.framework */; };
+		A856F35C210FA91D004C34B6 /* icons8-instagram-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A856F358210FA91D004C34B6 /* icons8-instagram-50.png */; };
+		A856F35D210FA91D004C34B6 /* icons8-facebook-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A856F359210FA91D004C34B6 /* icons8-facebook-50.png */; };
+		A856F35E210FA91D004C34B6 /* icons8-twitter-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A856F35A210FA91D004C34B6 /* icons8-twitter-50.png */; };
+		A856F35F210FA91D004C34B6 /* icons8-linkedin-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A856F35B210FA91D004C34B6 /* icons8-linkedin-50.png */; };
+		A87521482110E64B00AEC48A /* MainPageCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87521472110E64B00AEC48A /* MainPageCustomTableViewCell.swift */; };
+		A88057F021163309004C36B6 /* AboutPageCustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88057EF21163309004C36B6 /* AboutPageCustomCollectionViewCell.swift */; };
+		A88057F2211635D5004C36B6 /* seven.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A88057F1211635D5004C36B6 /* seven.jpg */; };
+		A8D897C92114B0C80050CFC8 /* MainPageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D897C82114B0C80050CFC8 /* MainPageDetailViewController.swift */; };
 		A8DDBE71210E3155009F9F05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DDBE70210E3155009F9F05 /* AppDelegate.swift */; };
-		A8DDBE73210E3155009F9F05 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DDBE72210E3155009F9F05 /* ViewController.swift */; };
 		A8DDBE76210E3155009F9F05 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8DDBE74210E3155009F9F05 /* Main.storyboard */; };
 		A8DDBE78210E3156009F9F05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8DDBE77210E3156009F9F05 /* Assets.xcassets */; };
 		A8DDBE7B210E3156009F9F05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8DDBE79210E3156009F9F05 /* LaunchScreen.storyboard */; };
+		A8DDBE83210E318D009F9F05 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DDBE82210E318D009F9F05 /* MainPageViewController.swift */; };
+		A8DDBE85210E3318009F9F05 /* LeftSideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DDBE84210E3318009F9F05 /* LeftSideMenuViewController.swift */; };
+		A8DDBE91210E350E009F9F05 /* MMDrawerBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DDBE8A210E350D009F9F05 /* MMDrawerBarButtonItem.m */; };
+		A8DDBE92210E350E009F9F05 /* MMDrawerVisualState.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DDBE8D210E350D009F9F05 /* MMDrawerVisualState.m */; };
+		A8DDBE93210E350E009F9F05 /* MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DDBE8E210E350E009F9F05 /* MMDrawerController.m */; };
+		A8DDBE94210E350E009F9F05 /* UIViewController+MMDrawerController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DDBE8F210E350E009F9F05 /* UIViewController+MMDrawerController.m */; };
+		A8DDBE9C210E5EB5009F9F05 /* MenuCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DDBE9B210E5EB5009F9F05 /* MenuCustomTableViewCell.swift */; };
+		A8DDBE9E210E6775009F9F05 /* AboutPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DDBE9D210E6775009F9F05 /* AboutPageViewController.swift */; };
+		A8EFFF3521133A8500319052 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A8EFFF3421133A8500319052 /* GoogleService-Info.plist */; };
+		A8F9E93521152D00000151DF /* WorkPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F9E93421152D00000151DF /* WorkPageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		75073B29F2835A70070ED8D6 /* Pods-MbsaysProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MbsaysProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-MbsaysProject/Pods-MbsaysProject.release.xcconfig"; sourceTree = "<group>"; };
+		A856F358210FA91D004C34B6 /* icons8-instagram-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-instagram-50.png"; sourceTree = "<group>"; };
+		A856F359210FA91D004C34B6 /* icons8-facebook-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-facebook-50.png"; sourceTree = "<group>"; };
+		A856F35A210FA91D004C34B6 /* icons8-twitter-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-twitter-50.png"; sourceTree = "<group>"; };
+		A856F35B210FA91D004C34B6 /* icons8-linkedin-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-linkedin-50.png"; sourceTree = "<group>"; };
+		A87521472110E64B00AEC48A /* MainPageCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageCustomTableViewCell.swift; sourceTree = "<group>"; };
+		A88057EF21163309004C36B6 /* AboutPageCustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPageCustomCollectionViewCell.swift; sourceTree = "<group>"; };
+		A88057F1211635D5004C36B6 /* seven.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = seven.jpg; sourceTree = "<group>"; };
+		A8D897C82114B0C80050CFC8 /* MainPageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageDetailViewController.swift; sourceTree = "<group>"; };
 		A8DDBE6D210E3155009F9F05 /* MbsaysProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MbsaysProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8DDBE70210E3155009F9F05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A8DDBE72210E3155009F9F05 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A8DDBE75210E3155009F9F05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A8DDBE77210E3156009F9F05 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A8DDBE7A210E3156009F9F05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A8DDBE7C210E3156009F9F05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A8DDBE82210E318D009F9F05 /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
+		A8DDBE84210E3318009F9F05 /* LeftSideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftSideMenuViewController.swift; sourceTree = "<group>"; };
+		A8DDBE87210E350D009F9F05 /* MbsaysProject-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MbsaysProject-Bridging-Header.h"; sourceTree = "<group>"; };
+		A8DDBE88210E350D009F9F05 /* MMDrawerController+Subclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MMDrawerController+Subclass.h"; sourceTree = "<group>"; };
+		A8DDBE89210E350D009F9F05 /* MMDrawerBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerBarButtonItem.h; sourceTree = "<group>"; };
+		A8DDBE8A210E350D009F9F05 /* MMDrawerBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerBarButtonItem.m; sourceTree = "<group>"; };
+		A8DDBE8B210E350D009F9F05 /* MMDrawerVisualState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerVisualState.h; sourceTree = "<group>"; };
+		A8DDBE8C210E350D009F9F05 /* MMDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMDrawerController.h; sourceTree = "<group>"; };
+		A8DDBE8D210E350D009F9F05 /* MMDrawerVisualState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerVisualState.m; sourceTree = "<group>"; };
+		A8DDBE8E210E350E009F9F05 /* MMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMDrawerController.m; sourceTree = "<group>"; };
+		A8DDBE8F210E350E009F9F05 /* UIViewController+MMDrawerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MMDrawerController.m"; sourceTree = "<group>"; };
+		A8DDBE90210E350E009F9F05 /* UIViewController+MMDrawerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MMDrawerController.h"; sourceTree = "<group>"; };
+		A8DDBE9B210E5EB5009F9F05 /* MenuCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCustomTableViewCell.swift; sourceTree = "<group>"; };
+		A8DDBE9D210E6775009F9F05 /* AboutPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPageViewController.swift; sourceTree = "<group>"; };
+		A8EFFF3421133A8500319052 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A8F9E93421152D00000151DF /* WorkPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkPageViewController.swift; sourceTree = "<group>"; };
+		ABE06683C5A2A971D805765C /* Pods_MbsaysProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MbsaysProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFD7748385EDF477D14641E9 /* Pods-MbsaysProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MbsaysProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MbsaysProject/Pods-MbsaysProject.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +73,48 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5335D7F7D6620867ACFC515F /* Pods_MbsaysProject.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A5B78609126744FCC26B8098 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ABE06683C5A2A971D805765C /* Pods_MbsaysProject.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A856F360210FA927004C34B6 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				A88057F1211635D5004C36B6 /* seven.jpg */,
+				A856F361210FA932004C34B6 /* menuIcons */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
+		A856F361210FA932004C34B6 /* menuIcons */ = {
+			isa = PBXGroup;
+			children = (
+				A856F359210FA91D004C34B6 /* icons8-facebook-50.png */,
+				A856F358210FA91D004C34B6 /* icons8-instagram-50.png */,
+				A856F35B210FA91D004C34B6 /* icons8-linkedin-50.png */,
+				A856F35A210FA91D004C34B6 /* icons8-twitter-50.png */,
+			);
+			path = menuIcons;
+			sourceTree = "<group>";
+		};
 		A8DDBE64210E3155009F9F05 = {
 			isa = PBXGroup;
 			children = (
 				A8DDBE6F210E3155009F9F05 /* MbsaysProject */,
 				A8DDBE6E210E3155009F9F05 /* Products */,
+				E5C5632C796E2CE43D178F9F /* Pods */,
+				A5B78609126744FCC26B8098 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +129,50 @@
 		A8DDBE6F210E3155009F9F05 /* MbsaysProject */ = {
 			isa = PBXGroup;
 			children = (
+				A856F360210FA927004C34B6 /* images */,
+				A8DDBE86210E34AB009F9F05 /* MMDrawer */,
 				A8DDBE70210E3155009F9F05 /* AppDelegate.swift */,
-				A8DDBE72210E3155009F9F05 /* ViewController.swift */,
 				A8DDBE74210E3155009F9F05 /* Main.storyboard */,
 				A8DDBE77210E3156009F9F05 /* Assets.xcassets */,
+				A8DDBE82210E318D009F9F05 /* MainPageViewController.swift */,
+				A8D897C82114B0C80050CFC8 /* MainPageDetailViewController.swift */,
+				A8DDBE9D210E6775009F9F05 /* AboutPageViewController.swift */,
+				A8F9E93421152D00000151DF /* WorkPageViewController.swift */,
 				A8DDBE79210E3156009F9F05 /* LaunchScreen.storyboard */,
 				A8DDBE7C210E3156009F9F05 /* Info.plist */,
+				A8EFFF3421133A8500319052 /* GoogleService-Info.plist */,
+				A88057EF21163309004C36B6 /* AboutPageCustomCollectionViewCell.swift */,
+				A8DDBE84210E3318009F9F05 /* LeftSideMenuViewController.swift */,
+				A8DDBE9B210E5EB5009F9F05 /* MenuCustomTableViewCell.swift */,
+				A87521472110E64B00AEC48A /* MainPageCustomTableViewCell.swift */,
 			);
 			path = MbsaysProject;
+			sourceTree = "<group>";
+		};
+		A8DDBE86210E34AB009F9F05 /* MMDrawer */ = {
+			isa = PBXGroup;
+			children = (
+				A8DDBE89210E350D009F9F05 /* MMDrawerBarButtonItem.h */,
+				A8DDBE8A210E350D009F9F05 /* MMDrawerBarButtonItem.m */,
+				A8DDBE8C210E350D009F9F05 /* MMDrawerController.h */,
+				A8DDBE8E210E350E009F9F05 /* MMDrawerController.m */,
+				A8DDBE88210E350D009F9F05 /* MMDrawerController+Subclass.h */,
+				A8DDBE8B210E350D009F9F05 /* MMDrawerVisualState.h */,
+				A8DDBE8D210E350D009F9F05 /* MMDrawerVisualState.m */,
+				A8DDBE90210E350E009F9F05 /* UIViewController+MMDrawerController.h */,
+				A8DDBE8F210E350E009F9F05 /* UIViewController+MMDrawerController.m */,
+				A8DDBE87210E350D009F9F05 /* MbsaysProject-Bridging-Header.h */,
+			);
+			path = MMDrawer;
+			sourceTree = "<group>";
+		};
+		E5C5632C796E2CE43D178F9F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AFD7748385EDF477D14641E9 /* Pods-MbsaysProject.debug.xcconfig */,
+				75073B29F2835A70070ED8D6 /* Pods-MbsaysProject.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +182,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A8DDBE7F210E3156009F9F05 /* Build configuration list for PBXNativeTarget "MbsaysProject" */;
 			buildPhases = (
+				8815CFF05517D7EB74E37843 /* [CP] Check Pods Manifest.lock */,
 				A8DDBE69210E3155009F9F05 /* Sources */,
 				A8DDBE6A210E3155009F9F05 /* Frameworks */,
 				A8DDBE6B210E3155009F9F05 /* Resources */,
+				3A36AD249784E7A8B316EDB2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -96,6 +209,7 @@
 				TargetAttributes = {
 					A8DDBE6C210E3155009F9F05 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 0940;
 					};
 				};
 			};
@@ -123,19 +237,93 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8DDBE7B210E3156009F9F05 /* LaunchScreen.storyboard in Resources */,
+				A88057F2211635D5004C36B6 /* seven.jpg in Resources */,
+				A8EFFF3521133A8500319052 /* GoogleService-Info.plist in Resources */,
 				A8DDBE78210E3156009F9F05 /* Assets.xcassets in Resources */,
 				A8DDBE76210E3155009F9F05 /* Main.storyboard in Resources */,
+				A856F35D210FA91D004C34B6 /* icons8-facebook-50.png in Resources */,
+				A856F35F210FA91D004C34B6 /* icons8-linkedin-50.png in Resources */,
+				A856F35E210FA91D004C34B6 /* icons8-twitter-50.png in Resources */,
+				A856F35C210FA91D004C34B6 /* icons8-instagram-50.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3A36AD249784E7A8B316EDB2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MbsaysProject/Pods-MbsaysProject-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MbsaysProject/Pods-MbsaysProject-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8815CFF05517D7EB74E37843 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MbsaysProject-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A8DDBE69210E3155009F9F05 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A8DDBE73210E3155009F9F05 /* ViewController.swift in Sources */,
+				A8DDBE92210E350E009F9F05 /* MMDrawerVisualState.m in Sources */,
+				A8DDBE85210E3318009F9F05 /* LeftSideMenuViewController.swift in Sources */,
+				A8DDBE94210E350E009F9F05 /* UIViewController+MMDrawerController.m in Sources */,
+				A8DDBE9C210E5EB5009F9F05 /* MenuCustomTableViewCell.swift in Sources */,
+				A8DDBE91210E350E009F9F05 /* MMDrawerBarButtonItem.m in Sources */,
+				A8DDBE83210E318D009F9F05 /* MainPageViewController.swift in Sources */,
+				A8D897C92114B0C80050CFC8 /* MainPageDetailViewController.swift in Sources */,
+				A87521482110E64B00AEC48A /* MainPageCustomTableViewCell.swift in Sources */,
+				A8DDBE93210E350E009F9F05 /* MMDrawerController.m in Sources */,
+				A8DDBE9E210E6775009F9F05 /* AboutPageViewController.swift in Sources */,
+				A8F9E93521152D00000151DF /* WorkPageViewController.swift in Sources */,
+				A88057F021163309004C36B6 /* AboutPageCustomCollectionViewCell.swift in Sources */,
 				A8DDBE71210E3155009F9F05 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,8 +466,10 @@
 		};
 		A8DDBE80210E3156009F9F05 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AFD7748385EDF477D14641E9 /* Pods-MbsaysProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = MbsaysProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -288,6 +478,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.MbsaysProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MbsaysProject/MMDrawer/MbsaysProject-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -295,8 +487,10 @@
 		};
 		A8DDBE81210E3156009F9F05 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 75073B29F2835A70070ED8D6 /* Pods-MbsaysProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = MbsaysProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -305,6 +499,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.MbsaysProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MbsaysProject/MMDrawer/MbsaysProject-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

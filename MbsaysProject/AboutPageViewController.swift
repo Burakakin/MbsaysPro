@@ -17,7 +17,6 @@ class AboutPageViewController: UIViewController {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         
-        
         let width = (view.frame.size.width - 30) / 2
         let layout = myCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSize(width: width, height: 180)

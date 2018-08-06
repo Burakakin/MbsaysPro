@@ -17,7 +17,6 @@ class WorkPageViewController: UIViewController {
     }
 
    
-    
     @IBAction func buttonTapped(_ sender: UIBarButtonItem) {
         let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.centerContainer!.toggle(MMDrawerSide.left, animated: true, completion: nil)

@@ -242,7 +242,40 @@
                     <view key="view" contentMode="scaleToFill" id="bpG-Su-U09">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aLe-nL-mBr">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Y39-rk-eqP">
+                                    <size key="itemSize" width="147" height="193"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="5" maxX="10" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="workCell" id="gCO-0T-p6b" customClass="WorkPageCollectionViewCell" customModule="MbsaysProject" customModuleProvider="target">
+                                        <rect key="frame" x="10" y="5" width="147" height="193"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="147" height="193"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                        <color key="backgroundColor" red="0.0048598507420000003" green="0.096086271109999996" blue="0.57499289509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="IOH-gw-4wN" id="MKD-yD-0GS"/>
+                                    <outlet property="delegate" destination="IOH-gw-4wN" id="dYE-lH-nEP"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="aLe-nL-mBr" firstAttribute="top" secondItem="BRf-zf-5TP" secondAttribute="top" id="1Vr-Vu-rd1"/>
+                            <constraint firstAttribute="bottom" secondItem="aLe-nL-mBr" secondAttribute="bottom" id="9wh-Pt-ZFy"/>
+                            <constraint firstItem="aLe-nL-mBr" firstAttribute="leading" secondItem="BRf-zf-5TP" secondAttribute="leading" id="Lck-t2-D4D"/>
+                            <constraint firstItem="BRf-zf-5TP" firstAttribute="trailing" secondItem="aLe-nL-mBr" secondAttribute="trailing" id="vRd-He-RCO"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="BRf-zf-5TP"/>
                     </view>
                     <navigationItem key="navigationItem" title="İşlerimiz" id="GQ3-iQ-B3K">
@@ -253,10 +286,13 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="workPageCollectionView" destination="aLe-nL-mBr" id="g9t-yn-H5e"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cWr-QH-rmk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2249" y="1173"/>
+            <point key="canvasLocation" x="2248.8000000000002" y="1172.5637181409297"/>
         </scene>
         <!--Left Side Menu View Controller-->
         <scene sceneID="KNG-Vb-HDR">

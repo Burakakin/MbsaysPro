@@ -18,7 +18,7 @@ class WorkPageViewController: UIViewController {
         // Do any additional setup after loading the view.
         let width = (view.frame.size.width - 30) / 2
         let layout = workPageCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
-        layout.itemSize = CGSize(width: width, height: 180)
+        layout.itemSize = CGSize(width: width, height: 200)
     }
 
    

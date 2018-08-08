@@ -35,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         centerContainer!.closeDrawerGestureModeMask = MMCloseDrawerGestureMode.panningCenterView
         window!.rootViewController = centerContainer
         window!.makeKeyAndVisible()
-      
+      //slmcanım
         
         
 //        // Sets background to a blank/empty image

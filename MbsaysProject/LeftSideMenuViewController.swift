@@ -56,6 +56,15 @@ class LeftSideMenuViewController: UIViewController {
     
     
     
+    @IBAction func aboutDeveloper(_ sender: UIButton) {
+        
+        let centerViewController = self.storyboard?.instantiateViewController(withIdentifier: "AboutDeveloperViewController") as! AboutDeveloperViewController
+        let centerNavController = UINavigationController(rootViewController: centerViewController)
+        let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.centerContainer!.centerViewController = centerNavController
+        appDelegate.centerContainer!.toggle(MMDrawerSide.left, animated: true, completion: nil)
+    }
+    
     
     
     

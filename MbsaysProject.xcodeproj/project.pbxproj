@@ -15,6 +15,7 @@
 		A87521482110E64B00AEC48A /* MainPageCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A87521472110E64B00AEC48A /* MainPageCustomTableViewCell.swift */; };
 		A88057F021163309004C36B6 /* AboutPageCustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88057EF21163309004C36B6 /* AboutPageCustomCollectionViewCell.swift */; };
 		A88057F2211635D5004C36B6 /* seven.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A88057F1211635D5004C36B6 /* seven.jpg */; };
+		A89E0394211B54AB00B0888E /* AboutDeveloperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A89E0393211B54AB00B0888E /* AboutDeveloperViewController.swift */; };
 		A8D0280E2118E3DD00224B63 /* WorkPageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D0280D2118E3DD00224B63 /* WorkPageCollectionViewCell.swift */; };
 		A8D897C92114B0C80050CFC8 /* MainPageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D897C82114B0C80050CFC8 /* MainPageDetailViewController.swift */; };
 		A8DDBE71210E3155009F9F05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DDBE70210E3155009F9F05 /* AppDelegate.swift */; };
@@ -42,6 +43,7 @@
 		A87521472110E64B00AEC48A /* MainPageCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageCustomTableViewCell.swift; sourceTree = "<group>"; };
 		A88057EF21163309004C36B6 /* AboutPageCustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPageCustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		A88057F1211635D5004C36B6 /* seven.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = seven.jpg; sourceTree = "<group>"; };
+		A89E0393211B54AB00B0888E /* AboutDeveloperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutDeveloperViewController.swift; sourceTree = "<group>"; };
 		A8D0280D2118E3DD00224B63 /* WorkPageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkPageCollectionViewCell.swift; sourceTree = "<group>"; };
 		A8D897C82114B0C80050CFC8 /* MainPageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageDetailViewController.swift; sourceTree = "<group>"; };
 		A8DDBE6D210E3155009F9F05 /* MbsaysProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MbsaysProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,6 +142,7 @@
 				A8D897C82114B0C80050CFC8 /* MainPageDetailViewController.swift */,
 				A8DDBE9D210E6775009F9F05 /* AboutPageViewController.swift */,
 				A8F9E93421152D00000151DF /* WorkPageViewController.swift */,
+				A89E0393211B54AB00B0888E /* AboutDeveloperViewController.swift */,
 				A8DDBE79210E3156009F9F05 /* LaunchScreen.storyboard */,
 				A8DDBE7C210E3156009F9F05 /* Info.plist */,
 				A8EFFF3421133A8500319052 /* GoogleService-Info.plist */,
@@ -317,6 +320,7 @@
 			files = (
 				A8DDBE92210E350E009F9F05 /* MMDrawerVisualState.m in Sources */,
 				A8DDBE85210E3318009F9F05 /* LeftSideMenuViewController.swift in Sources */,
+				A89E0394211B54AB00B0888E /* AboutDeveloperViewController.swift in Sources */,
 				A8DDBE94210E350E009F9F05 /* UIViewController+MMDrawerController.m in Sources */,
 				A8DDBE9C210E5EB5009F9F05 /* MenuCustomTableViewCell.swift in Sources */,
 				A8DDBE91210E350E009F9F05 /* MMDrawerBarButtonItem.m in Sources */,

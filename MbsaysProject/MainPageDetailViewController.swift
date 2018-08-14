@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseStorage
+import CoreData
 
 class MainPageDetailViewController: UIViewController {
     

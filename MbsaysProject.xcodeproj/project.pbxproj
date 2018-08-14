@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		5335D7F7D6620867ACFC515F /* Pods_MbsaysProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABE06683C5A2A971D805765C /* Pods_MbsaysProject.framework */; };
 		A800AF302123448A004F08F1 /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A800AF2E2123448A004F08F1 /* CoreData.xcdatamodeld */; };
+		A800AF32212346E3004F08F1 /* FavContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A800AF31212346E3004F08F1 /* FavContentViewController.swift */; };
+		A800AF342123671B004F08F1 /* FavContentPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A800AF332123671B004F08F1 /* FavContentPageTableViewCell.swift */; };
 		A856F35C210FA91D004C34B6 /* icons8-instagram-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A856F358210FA91D004C34B6 /* icons8-instagram-50.png */; };
 		A856F35D210FA91D004C34B6 /* icons8-facebook-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A856F359210FA91D004C34B6 /* icons8-facebook-50.png */; };
 		A856F35E210FA91D004C34B6 /* icons8-twitter-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A856F35A210FA91D004C34B6 /* icons8-twitter-50.png */; };
@@ -38,6 +40,8 @@
 /* Begin PBXFileReference section */
 		75073B29F2835A70070ED8D6 /* Pods-MbsaysProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MbsaysProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-MbsaysProject/Pods-MbsaysProject.release.xcconfig"; sourceTree = "<group>"; };
 		A800AF2F2123448A004F08F1 /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
+		A800AF31212346E3004F08F1 /* FavContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavContentViewController.swift; sourceTree = "<group>"; };
+		A800AF332123671B004F08F1 /* FavContentPageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavContentPageTableViewCell.swift; sourceTree = "<group>"; };
 		A856F358210FA91D004C34B6 /* icons8-instagram-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-instagram-50.png"; sourceTree = "<group>"; };
 		A856F359210FA91D004C34B6 /* icons8-facebook-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-facebook-50.png"; sourceTree = "<group>"; };
 		A856F35A210FA91D004C34B6 /* icons8-twitter-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-twitter-50.png"; sourceTree = "<group>"; };
@@ -146,6 +150,7 @@
 				A8DDBE9D210E6775009F9F05 /* AboutPageViewController.swift */,
 				A8F9E93421152D00000151DF /* WorkPageViewController.swift */,
 				A89E0393211B54AB00B0888E /* AboutDeveloperViewController.swift */,
+				A800AF31212346E3004F08F1 /* FavContentViewController.swift */,
 				A8DDBE79210E3156009F9F05 /* LaunchScreen.storyboard */,
 				A8DDBE7C210E3156009F9F05 /* Info.plist */,
 				A8EFFF3421133A8500319052 /* GoogleService-Info.plist */,
@@ -154,6 +159,7 @@
 				A8DDBE9B210E5EB5009F9F05 /* MenuCustomTableViewCell.swift */,
 				A87521472110E64B00AEC48A /* MainPageCustomTableViewCell.swift */,
 				A8D0280D2118E3DD00224B63 /* WorkPageCollectionViewCell.swift */,
+				A800AF332123671B004F08F1 /* FavContentPageTableViewCell.swift */,
 			);
 			path = MbsaysProject;
 			sourceTree = "<group>";
@@ -321,6 +327,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A800AF32212346E3004F08F1 /* FavContentViewController.swift in Sources */,
 				A800AF302123448A004F08F1 /* CoreData.xcdatamodeld in Sources */,
 				A8DDBE92210E350E009F9F05 /* MMDrawerVisualState.m in Sources */,
 				A8DDBE85210E3318009F9F05 /* LeftSideMenuViewController.swift in Sources */,
@@ -334,6 +341,7 @@
 				A8DDBE93210E350E009F9F05 /* MMDrawerController.m in Sources */,
 				A8DDBE9E210E6775009F9F05 /* AboutPageViewController.swift in Sources */,
 				A8F9E93521152D00000151DF /* WorkPageViewController.swift in Sources */,
+				A800AF342123671B004F08F1 /* FavContentPageTableViewCell.swift in Sources */,
 				A88057F021163309004C36B6 /* AboutPageCustomCollectionViewCell.swift in Sources */,
 				A8D0280E2118E3DD00224B63 /* WorkPageCollectionViewCell.swift in Sources */,
 				A8DDBE71210E3155009F9F05 /* AppDelegate.swift in Sources */,

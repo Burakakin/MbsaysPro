@@ -1,20 +1,18 @@
 //
-//  MainPageCustomTableViewCell.swift
+//  FavContentPageTableViewCell.swift
 //  MbsaysProject
 //
-//  Created by Burak Akin on 31.07.2018.
+//  Created by Burak Akin on 14.08.2018.
 //  Copyright © 2018 Burak Akin. All rights reserved.
 //
 
 import UIKit
 
-class MainPageCustomTableViewCell: UITableViewCell {
+class FavContentPageTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var mainPageTitle: UILabel!
-    @IBOutlet weak var mainPageDescription: UILabel!
-    @IBOutlet weak var mainPageImage: UIImageView!
-    @IBOutlet weak var favButton: UIButton!
-    
+    @IBOutlet weak var favContentImageView: UIImageView!
+    @IBOutlet weak var favContentTitleLabel: UILabel!
+    @IBOutlet weak var favContentDescriptionlbl: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

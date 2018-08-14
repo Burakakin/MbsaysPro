@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5335D7F7D6620867ACFC515F /* Pods_MbsaysProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABE06683C5A2A971D805765C /* Pods_MbsaysProject.framework */; };
+		A800AF302123448A004F08F1 /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A800AF2E2123448A004F08F1 /* CoreData.xcdatamodeld */; };
 		A856F35C210FA91D004C34B6 /* icons8-instagram-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A856F358210FA91D004C34B6 /* icons8-instagram-50.png */; };
 		A856F35D210FA91D004C34B6 /* icons8-facebook-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A856F359210FA91D004C34B6 /* icons8-facebook-50.png */; };
 		A856F35E210FA91D004C34B6 /* icons8-twitter-50.png in Resources */ = {isa = PBXBuildFile; fileRef = A856F35A210FA91D004C34B6 /* icons8-twitter-50.png */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		75073B29F2835A70070ED8D6 /* Pods-MbsaysProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MbsaysProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-MbsaysProject/Pods-MbsaysProject.release.xcconfig"; sourceTree = "<group>"; };
+		A800AF2F2123448A004F08F1 /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 		A856F358210FA91D004C34B6 /* icons8-instagram-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-instagram-50.png"; sourceTree = "<group>"; };
 		A856F359210FA91D004C34B6 /* icons8-facebook-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-facebook-50.png"; sourceTree = "<group>"; };
 		A856F35A210FA91D004C34B6 /* icons8-twitter-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-twitter-50.png"; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				A856F360210FA927004C34B6 /* images */,
 				A8DDBE86210E34AB009F9F05 /* MMDrawer */,
 				A8DDBE70210E3155009F9F05 /* AppDelegate.swift */,
+				A800AF2E2123448A004F08F1 /* CoreData.xcdatamodeld */,
 				A8DDBE74210E3155009F9F05 /* Main.storyboard */,
 				A8DDBE77210E3156009F9F05 /* Assets.xcassets */,
 				A8DDBE82210E318D009F9F05 /* MainPageViewController.swift */,
@@ -318,6 +321,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A800AF302123448A004F08F1 /* CoreData.xcdatamodeld in Sources */,
 				A8DDBE92210E350E009F9F05 /* MMDrawerVisualState.m in Sources */,
 				A8DDBE85210E3318009F9F05 /* LeftSideMenuViewController.swift in Sources */,
 				A89E0394211B54AB00B0888E /* AboutDeveloperViewController.swift in Sources */,
@@ -535,6 +539,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A800AF2E2123448A004F08F1 /* CoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A800AF2F2123448A004F08F1 /* CoreData.xcdatamodel */,
+			);
+			currentVersion = A800AF2F2123448A004F08F1 /* CoreData.xcdatamodel */;
+			path = CoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A8DDBE65210E3155009F9F05 /* Project object */;
 }

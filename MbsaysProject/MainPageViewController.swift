@@ -110,21 +110,49 @@ class MainPageViewController: UIViewController {
         
     }
     
+    func addFavorite(for mID : String) throws -> Bool {
+        let request : NSFetchRequest<ContentID> = ContentID.fetchRequest()
+        request.predicate = NSPredicate(format: "mID = %@", mID)
+        request.fetchLimit = 1
+        if let _ = try context.fetch(request).first {
+            alert(with: mID, for: "Zaten Ekledin")
+            //            print("Zaten ekledin")
+            return false // record exists
+        } else {
+            fav.mID = mID
+            try context.save()
+            alert(with: mID, for: "Eklendi")
+            return true // record added
+        }
+    }
+    
+    func deleteFav(for mID : String) throws -> Bool {
+        let request : NSFetchRequest<ContentID> = ContentID.fetchRequest()
+        request.predicate = NSPredicate(format: "mID = %@", mID)
+        request.fetchLimit = 1
+        if let deleteRecord = try context.fetch(request).first {
+            context.delete(deleteRecord)
+            try context.save()
+            alert(with: mID, for: "Sildin")
+            return false // record deleted
+        } else {
+            return true
+        }
+    }
+    
     
     @objc func addFav(sender: UIButton) {
         
         let rowSelected = sender.tag
        
+        let _ = (mainPage[rowSelected]["title"] as! String)
+        let mID = (mainPage[rowSelected]["id"] as! String)
         
         if buttonClickedOnce {
             sender.backgroundColor = UIColor.red
             buttonClickedOnce = false
             do{
-                fav.titleDetail = (mainPage[rowSelected]["title"] as! String)
-                fav.mID = (mainPage[rowSelected]["id"] as! String)
-                try context.save()
-                alert(with: fav.titleDetail!, for: "Eklendi")
-                
+                let _ = try addFavorite(for: mID)
             } catch{
                 print("Error")
             }
@@ -134,11 +162,11 @@ class MainPageViewController: UIViewController {
         else{
             sender.backgroundColor = UIColor.clear
             buttonClickedOnce = true
-//            do{
-//
-//            } catch{
-//                print("Error")
-//            }
+            do{
+                 let _ = try deleteFav(for: mID)
+            } catch{
+                print("Error")
+            }
         }
 
         

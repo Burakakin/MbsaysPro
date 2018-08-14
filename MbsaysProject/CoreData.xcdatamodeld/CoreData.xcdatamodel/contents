@@ -2,9 +2,8 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17G65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="ContentID" representedClassName="ContentID" syncable="YES" codeGenerationType="class">
         <attribute name="mID" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="titleDetail" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="ContentID" positionX="-63" positionY="-18" width="128" height="75"/>
+        <element name="ContentID" positionX="-63" positionY="-18" width="128" height="60"/>
     </elements>
 </model>

@@ -11,11 +11,11 @@ import Firebase
 import FirebaseStorage
 import CoreData
 
-let appDelegate = UIApplication.shared.delegate as! AppDelegate
-let context = appDelegate.persistentContainer.viewContext
-let fav = ContentID(context: context)
+
 
 class MainPageDetailViewController: UIViewController {
+    
+    
     
     var buttonClickedOnce = true
     var ref: CollectionReference!
@@ -27,11 +27,18 @@ class MainPageDetailViewController: UIViewController {
     var documentId: String?
     var titleDetail: String?
     
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    lazy var context = appDelegate.persistentContainer.viewContext
+    lazy var fav = ContentID(context: context)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+        
+        
         mainPageDetailTitle.text = titleDetail
        
+        
         print(documentId ?? "")
         ref = Firestore.firestore().collection("mainPage/\(documentId ?? "")/mainPageDetail")
         getMainPageDetail()
@@ -83,13 +90,12 @@ class MainPageDetailViewController: UIViewController {
     @IBAction func addFavButton(_ sender: UIButton) {
         
         
-        let mID = documentId
-        
+       
         if buttonClickedOnce {
             
             buttonClickedOnce = false
             do{
-                let _ = try addFavorite(for: mID!)
+                let _ = try addFavorite(for: documentId ?? "")
             } catch{
                 print("Error")
             }
@@ -100,7 +106,7 @@ class MainPageDetailViewController: UIViewController {
             
             buttonClickedOnce = true
             do{
-                let _ = try deleteFav(for: mID!)
+                let _ = try deleteFav(for: documentId ?? "")
             } catch{
                 print("Error")
             }

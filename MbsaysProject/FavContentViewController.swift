@@ -8,30 +8,53 @@
 
 import UIKit
 import CoreData
+import Firebase
+import FirebaseStorage
 
 class FavContentViewController: UIViewController {
 
     var contentId = [ContentID]()
     
+    var ref: CollectionReference!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+         ref = Firestore.firestore().collection("mainPage")
+       
+        // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         let appDelegate = (UIApplication.shared.delegate) as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         
         do{
-            let result = try context.fetch(ContentID.fetchRequest())
-            contentId = result as! [ContentID]
-            
+            contentId = try context.fetch(ContentID.fetchRequest())
+            for id in contentId{
+                getData(id: id.mID ?? "")
+            }
         } catch{
             print("Error")
         }
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func getData(id data:String){
+        
+       let docref = ref.document("\(data)")
+       docref.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                print("Document data: \(dataDescription)")
+            } else {
+                print("Document does not exist")
+            }
+        }
     }
     
     
@@ -59,3 +82,4 @@ extension FavContentViewController: UITableViewDelegate, UITableViewDataSource {
     
     
 }
+

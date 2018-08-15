@@ -9,16 +9,9 @@
 import UIKit
 import Firebase
 import FirebaseStorage
-import CoreData
 
-
-let appDelegate = UIApplication.shared.delegate as! AppDelegate
-let context = appDelegate.persistentContainer.viewContext
-let fav = ContentID(context: context)
 
 class MainPageViewController: UIViewController {
-
-    var buttonClickedOnce = true
     
     @IBOutlet weak var tableViewMain: UITableView!
     var ref: CollectionReference!
@@ -99,79 +92,7 @@ class MainPageViewController: UIViewController {
 //        }
 //    }
     
-    func alert(with title: String,for message: String ){
-        // create the alert
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        // add an action (button)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-        // show the alert
-        self.present(alert, animated: true, completion: nil)
-        
-        
-    }
     
-    func addFavorite(for mID : String) throws -> Bool {
-        let request : NSFetchRequest<ContentID> = ContentID.fetchRequest()
-        request.predicate = NSPredicate(format: "mID = %@", mID)
-        request.fetchLimit = 1
-        if let _ = try context.fetch(request).first {
-            alert(with: mID, for: "Zaten Ekledin")
-            //            print("Zaten ekledin")
-            return false // record exists
-        } else {
-            fav.mID = mID
-            try context.save()
-            alert(with: mID, for: "Eklendi")
-            return true // record added
-        }
-    }
-    
-    func deleteFav(for mID : String) throws -> Bool {
-        let request : NSFetchRequest<ContentID> = ContentID.fetchRequest()
-        request.predicate = NSPredicate(format: "mID = %@", mID)
-        request.fetchLimit = 1
-        if let deleteRecord = try context.fetch(request).first {
-            context.delete(deleteRecord)
-            try context.save()
-            alert(with: mID, for: "Sildin")
-            return false // record deleted
-        } else {
-            return true
-        }
-    }
-    
-    
-    @objc func addFav(sender: UIButton) {
-        
-        let rowSelected = sender.tag
-       
-        let _ = (mainPage[rowSelected]["title"] as! String)
-        let mID = (mainPage[rowSelected]["id"] as! String)
-        
-        if buttonClickedOnce {
-            sender.backgroundColor = UIColor.red
-            buttonClickedOnce = false
-            do{
-                let _ = try addFavorite(for: mID)
-            } catch{
-                print("Error")
-            }
-
-
-        }
-        else{
-            sender.backgroundColor = UIColor.clear
-            buttonClickedOnce = true
-            do{
-                 let _ = try deleteFav(for: mID)
-            } catch{
-                print("Error")
-            }
-        }
-
-        
-        
-    }
     
 }
 
@@ -191,8 +112,6 @@ extension MainPageViewController: UITableViewDataSource, UITableViewDelegate {
         cell.mainPageTitle.text = (mainPage[indexPath.row]["title"] as! String)
         cell.mainPageDescription.text = (mainPage[indexPath.row]["description"] as! String)
         cell.mainPageImage.download(url: mainPage[indexPath.row]["imageUrl"] as! String)
-        cell.favButton.tag = indexPath.row
-        cell.favButton.addTarget(self, action: #selector(addFav(sender:)), for: UIControlEvents.touchUpInside)
         return cell
     }
     

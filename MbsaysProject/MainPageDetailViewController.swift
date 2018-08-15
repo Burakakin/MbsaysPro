@@ -11,8 +11,13 @@ import Firebase
 import FirebaseStorage
 import CoreData
 
+let appDelegate = UIApplication.shared.delegate as! AppDelegate
+let context = appDelegate.persistentContainer.viewContext
+let fav = ContentID(context: context)
+
 class MainPageDetailViewController: UIViewController {
     
+    var buttonClickedOnce = true
     var ref: CollectionReference!
     
     @IBOutlet weak var mainPageDetailTitle: UILabel!
@@ -31,9 +36,76 @@ class MainPageDetailViewController: UIViewController {
         ref = Firestore.firestore().collection("mainPage/\(documentId ?? "")/mainPageDetail")
         getMainPageDetail()
         
-        
     }
     
+    func alert(with title: String,for message: String ){
+    // create the alert
+    let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+    // add an action (button)
+    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+    // show the alert
+    self.present(alert, animated: true, completion: nil)
+    
+    
+    }
+    
+    func addFavorite(for mID : String) throws -> Bool {
+        let request : NSFetchRequest<ContentID> = ContentID.fetchRequest()
+        request.predicate = NSPredicate(format: "mID = %@", mID)
+        request.fetchLimit = 1
+        if let _ = try context.fetch(request).first {
+            alert(with: mID, for: "Zaten Ekledin")
+            //            print("Zaten ekledin")
+            return false // record exists
+        } else {
+            fav.mID = mID
+            try context.save()
+            alert(with: mID, for: "Eklendi")
+            return true // record added
+        }
+    }
+    
+    func deleteFav(for mID : String) throws -> Bool {
+        let request : NSFetchRequest<ContentID> = ContentID.fetchRequest()
+        request.predicate = NSPredicate(format: "mID = %@", mID)
+        request.fetchLimit = 1
+        if let deleteRecord = try context.fetch(request).first {
+            context.delete(deleteRecord)
+            try context.save()
+            alert(with: mID, for: "Sildin")
+            return false // record deleted
+        } else {
+            return true
+        }
+    }
+    
+    
+    @IBAction func addFavButton(_ sender: UIButton) {
+        
+        
+        let mID = documentId
+        
+        if buttonClickedOnce {
+            
+            buttonClickedOnce = false
+            do{
+                let _ = try addFavorite(for: mID!)
+            } catch{
+                print("Error")
+            }
+            
+            
+        }
+        else{
+            
+            buttonClickedOnce = true
+            do{
+                let _ = try deleteFav(for: mID!)
+            } catch{
+                print("Error")
+            }
+        }
+    }
     
     
     func getMainPageDetail() {

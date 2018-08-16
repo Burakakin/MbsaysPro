@@ -14,7 +14,9 @@ import FirebaseStorage
 class FavContentViewController: UIViewController {
 
     var contentId = [ContentID]()
+    var dataFromFirestore = [[String: Any]]()
     
+    @IBOutlet weak var customTableView: UITableView!
     var ref: CollectionReference!
     
     override func viewDidLoad() {
@@ -38,19 +40,22 @@ class FavContentViewController: UIViewController {
             print("Error")
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     func getData(id data:String){
         
        let docref = ref.document("\(data)")
        docref.getDocument { (document, error) in
             if let document = document, document.exists {
-                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-                print("Document data: \(dataDescription)")
+                //let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                let dataTitle = document.data()!["title"] as! String
+                let dataDescription = document.data()!["description"] as! String
+                let dataImageUrl = document.data()!["imageUrl"] as! String
+                let data: [String: String] = ["title": dataTitle, "imageUrl": dataImageUrl, "description": dataDescription]
+                DispatchQueue.main.async {
+                    self.dataFromFirestore.append(data)
+                    self.customTableView.reloadData()
+                }
+               
             } else {
                 print("Document does not exist")
             }
@@ -66,13 +71,13 @@ extension FavContentViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return contentId.count
+        return dataFromFirestore.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "favCell", for: indexPath) as! FavContentPageTableViewCell
-        let content = contentId[indexPath.row]
-        cell.favContentDescriptionlbl.text = content.mID
+        let content = dataFromFirestore[indexPath.row]
+        cell.favContentDescriptionlbl.text = (content["description"] as! String)
         return cell
     }
     

@@ -444,6 +444,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="EZn-G9-dyi"/>
                     </view>
+                    <connections>
+                        <outlet property="customTableView" destination="Xxs-bX-z9T" id="wEb-CL-GYZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SFL-EQ-pU7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

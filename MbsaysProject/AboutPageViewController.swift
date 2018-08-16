@@ -23,7 +23,7 @@ class AboutPageViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    var teamDictionary: [[String: String]] = [["name": "Yeşer Sarıyıldız", "title": "Co-Founder","fb": "","ig": "","linkedin": ""],["name": "Yeşer Sarıyıldız", "title": "Co-Founder","fb": "","ig": "","linkedin": ""]]
+    var teamDictionary: [[String: String]] = [["name": "Yeşer Sarıyıldız", "title": "Co-Founder","fb": "","ig": "","linkedin": ""],["name": "Yeşer Sarıyıldız", "title": "Co-Founder","fb": "","ig": "","linkedin": ""],["name": "Yeşer Sarıyıldız", "title": "Co-Founder","fb": "","ig": "","linkedin": ""],["name": "Yeşer Sarıyıldız", "title": "Co-Founder","fb": "","ig": "","linkedin": ""],["name": "Yeşer Sarıyıldız", "title": "Co-Founder","fb": "","ig": "","linkedin": ""]]
     
     
     @IBAction func LeftSideButtonTapped(_ sender: Any) {

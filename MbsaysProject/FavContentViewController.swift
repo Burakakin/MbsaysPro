@@ -25,9 +25,6 @@ class FavContentViewController: UIViewController {
          ref = Firestore.firestore().collection("mainPage")
        
         // Do any additional setup after loading the view.
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
         let appDelegate = (UIApplication.shared.delegate) as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         
@@ -39,6 +36,8 @@ class FavContentViewController: UIViewController {
         } catch{
             print("Error")
         }
+        
+        
     }
     
     func getData(id data:String){
@@ -50,9 +49,9 @@ class FavContentViewController: UIViewController {
                 let dataTitle = document.data()!["title"] as! String
                 let dataDescription = document.data()!["description"] as! String
                 let dataImageUrl = document.data()!["imageUrl"] as! String
-                let data: [String: String] = ["title": dataTitle, "imageUrl": dataImageUrl, "description": dataDescription]
+                let dataDic: [String: String] = ["id": data, "title": dataTitle, "imageUrl": dataImageUrl, "description": dataDescription]
                 DispatchQueue.main.async {
-                    self.dataFromFirestore.append(data)
+                    self.dataFromFirestore.append(dataDic)
                     self.customTableView.reloadData()
                 }
                
@@ -78,13 +77,30 @@ extension FavContentViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "favCell", for: indexPath) as! FavContentPageTableViewCell
         let content = dataFromFirestore[indexPath.row]
         cell.favContentDescriptionlbl.text = (content["description"] as! String)
+        cell.favContentTitleLabel.text = (content["title"] as! String)
+        cell.favContentImageView.download(url: content["imageUrl"] as! String)
+        
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "mainPageShowDetail2", sender: indexPath)
+    }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let rowSelected = (sender as! IndexPath).row
+        if segue.identifier == "mainPageShowDetail2" {
+            if let mainPageDetailVC = segue.destination as? MainPageDetailViewController {
+                mainPageDetailVC.titleDetail = (dataFromFirestore[rowSelected]["title"] as! String)
+                mainPageDetailVC.documentId = (dataFromFirestore[rowSelected]["id"] as! String)
+            }
+        }
+    }
+
     
     
     
 }
+
+
 

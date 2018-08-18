@@ -11,10 +11,15 @@ import CoreData
 import Firebase
 import FirebaseStorage
 
+let appDelegate = (UIApplication.shared.delegate) as! AppDelegate
+let context = appDelegate.persistentContainer.viewContext
+
 class FavContentViewController: UIViewController {
 
     var contentId = [ContentID]()
     var dataFromFirestore = [[String: Any]]()
+    
+    var refresher: UIRefreshControl!
     
     @IBOutlet weak var customTableView: UITableView!
     var ref: CollectionReference!
@@ -25,41 +30,51 @@ class FavContentViewController: UIViewController {
          ref = Firestore.firestore().collection("mainPage")
        
         // Do any additional setup after loading the view.
-        let appDelegate = (UIApplication.shared.delegate) as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
         
+        
+        getData()
+        
+        refresher = UIRefreshControl()
+        customTableView.refreshControl = refresher
+        refresher.attributedTitle = NSAttributedString(string: "Pull to Refresh")
+        refresher.addTarget(self, action: #selector(getData), for: .valueChanged)
+        
+    }
+    
+   
+    
+    @objc func getData(){
+        dataFromFirestore.removeAll()
         do{
             contentId = try context.fetch(ContentID.fetchRequest())
             for id in contentId{
-                getData(id: id.mID ?? "")
+                let docref = ref.document("\(id.mID ?? "")")
+                docref.getDocument { (document, error) in
+                    if let document = document, document.exists {
+                        //let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                        let dataTitle = document.data()!["title"] as! String
+                        let dataDescription = document.data()!["description"] as! String
+                        let dataImageUrl = document.data()!["imageUrl"] as! String
+                        let dataDic: [String: String] = ["id": id.mID ?? "", "title": dataTitle, "imageUrl": dataImageUrl, "description": dataDescription]
+                        DispatchQueue.main.async {
+                            self.dataFromFirestore.append(dataDic)
+                            self.customTableView.reloadData()
+                            self.refresher.endRefreshing()
+                        }
+                    } else {
+                        print("Document does not exist")
+                    }
+                }
             }
+            
+            
         } catch{
             print("Error")
         }
         
-        
     }
     
-    func getData(id data:String){
-        
-       let docref = ref.document("\(data)")
-       docref.getDocument { (document, error) in
-            if let document = document, document.exists {
-                //let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-                let dataTitle = document.data()!["title"] as! String
-                let dataDescription = document.data()!["description"] as! String
-                let dataImageUrl = document.data()!["imageUrl"] as! String
-                let dataDic: [String: String] = ["id": data, "title": dataTitle, "imageUrl": dataImageUrl, "description": dataDescription]
-                DispatchQueue.main.async {
-                    self.dataFromFirestore.append(dataDic)
-                    self.customTableView.reloadData()
-                }
-               
-            } else {
-                print("Document does not exist")
-            }
-        }
-    }
+    
     
     
 

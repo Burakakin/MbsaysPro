@@ -47,26 +47,34 @@ class FavContentViewController: UIViewController {
         dataFromFirestore.removeAll()
         do{
             contentId = try context.fetch(ContentID.fetchRequest())
-            for id in contentId{
-                let docref = ref.document("\(id.mID ?? "")")
-                docref.getDocument { (document, error) in
-                    if let document = document, document.exists {
-                        //let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-                        let dataTitle = document.data()!["title"] as! String
-                        let dataDescription = document.data()!["description"] as! String
-                        let dataImageUrl = document.data()!["imageUrl"] as! String
-                        let dataDic: [String: String] = ["id": id.mID ?? "", "title": dataTitle, "imageUrl": dataImageUrl, "description": dataDescription]
-                        DispatchQueue.main.async {
-                            self.dataFromFirestore.append(dataDic)
-                            self.customTableView.reloadData()
-                            self.refresher.endRefreshing()
+            if contentId.count == 0 {
+                print("Burak")
+                DispatchQueue.main.async {
+                    self.customTableView.reloadData()
+                    self.refresher.endRefreshing()
+                }
+            }
+            else{
+                for id in contentId{
+                    let docref = ref.document("\(id.mID ?? "")")
+                    docref.getDocument { (document, error) in
+                        if let document = document, document.exists {
+                            //let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                            let dataTitle = document.data()!["title"] as! String
+                            let dataDescription = document.data()!["description"] as! String
+                            let dataImageUrl = document.data()!["imageUrl"] as! String
+                            let dataDic: [String: String] = ["id": id.mID ?? "", "title": dataTitle, "imageUrl": dataImageUrl, "description": dataDescription]
+                            DispatchQueue.main.async {
+                                self.dataFromFirestore.append(dataDic)
+                                self.customTableView.reloadData()
+                                self.refresher.endRefreshing()
+                            }
+                        } else {
+                            print("Document does not exist")
                         }
-                    } else {
-                        print("Document does not exist")
                     }
                 }
             }
-            
             
         } catch{
             print("Error")
@@ -86,6 +94,7 @@ extension FavContentViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataFromFirestore.count
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -94,7 +103,6 @@ extension FavContentViewController: UITableViewDelegate, UITableViewDataSource {
         cell.favContentDescriptionlbl.text = (content["description"] as! String)
         cell.favContentTitleLabel.text = (content["title"] as! String)
         cell.favContentImageView.download(url: content["imageUrl"] as! String)
-        
         return cell
     }
     

@@ -138,7 +138,8 @@ extension MainPageViewController: UITableViewDataSource, UITableViewDelegate {
 extension MainPageViewController: UISearchBarDelegate{
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        filteredMainPage = mainPage.filter { $0["title"]?.lowercased() == "\(searchText)"}
+//        filteredMainPage = mainPage.filter { $0["title"]?.lowercased() == "\(searchText)"}
+        filteredMainPage = mainPage.filter { ($0["title"]?.contains(searchText))!}
         print(filteredMainPage)
         DispatchQueue.main.async {
             self.tableViewMain.reloadData()

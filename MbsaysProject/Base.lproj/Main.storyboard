@@ -108,7 +108,7 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="AKg-2T-4o3"/>
                                 </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Ll2-na-z1G">
+                            <searchBar contentMode="redraw" placeholder="Küçük Harf Kullanınız" translatesAutoresizingMaskIntoConstraints="NO" id="Ll2-na-z1G">
                                 <rect key="frame" x="0.0" y="64" width="375" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -156,7 +156,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IJE-zZ-Jap">
-                                <rect key="frame" x="0.0" y="20" width="375" height="980"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="936"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q90-lQ-kSE" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="980"/>

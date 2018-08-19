@@ -29,8 +29,6 @@ class MainPageViewController: UIViewController {
         
        ref = Firestore.firestore().collection("mainPage")
        getData()
-        
-       
        
     }
 
@@ -138,13 +136,15 @@ extension MainPageViewController: UITableViewDataSource, UITableViewDelegate {
 }
 
 extension MainPageViewController: UISearchBarDelegate{
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        filteredMainPage = mainPage.filter { $0["title"] == "\(searchText)"}
+        filteredMainPage = mainPage.filter { $0["title"]?.lowercased() == "\(searchText)"}
         print(filteredMainPage)
         DispatchQueue.main.async {
             self.tableViewMain.reloadData()
         }
     }
+    
     
     
 }

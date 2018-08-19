@@ -52,7 +52,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="130" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BBF-Zx-fKk">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="120" width="375" height="547"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="mainPageTableViewCell" id="1y3-l7-4Kd" customClass="MainPageCustomTableViewCell" customModule="MbsaysProject" customModuleProvider="target">
@@ -108,13 +108,24 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="AKg-2T-4o3"/>
                                 </connections>
                             </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Ll2-na-z1G">
+                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="nPA-VK-QYe"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" red="0.57874745130000005" green="0.32151988149999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="BBF-Zx-fKk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="41H-HC-xXF"/>
                             <constraint firstItem="BBF-Zx-fKk" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="HSO-46-844"/>
+                            <constraint firstItem="BBF-Zx-fKk" firstAttribute="top" secondItem="Ll2-na-z1G" secondAttribute="bottom" id="LmV-oG-DeW"/>
+                            <constraint firstItem="Ll2-na-z1G" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="NOJ-Ku-8OT"/>
                             <constraint firstItem="BBF-Zx-fKk" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="SjS-0v-VsZ"/>
-                            <constraint firstItem="BBF-Zx-fKk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="sUY-r2-bxW"/>
+                            <constraint firstItem="BBF-Zx-fKk" firstAttribute="top" secondItem="Ll2-na-z1G" secondAttribute="bottom" id="d3M-dp-pUh"/>
+                            <constraint firstItem="Ll2-na-z1G" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hrZ-ht-Los"/>
+                            <constraint firstItem="Ll2-na-z1G" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="kEW-CI-c9E"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -127,13 +138,14 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="searchBarMain" destination="Ll2-na-z1G" id="bsZ-42-Ibc"/>
                         <outlet property="tableViewMain" destination="BBF-Zx-fKk" id="XKQ-ZQ-JVY"/>
                         <segue destination="ZOI-gB-3Cr" kind="show" identifier="mainPageShowDetail" id="aI9-vx-gYH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2220" y="-406"/>
+            <point key="canvasLocation" x="2220" y="-406.14692653673166"/>
         </scene>
         <!--Main Page Detail View Controller-->
         <scene sceneID="yTM-cf-8sD">
@@ -618,6 +630,6 @@
         <image name="seven.jpg" width="612" height="612"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="G93-1X-Vy1"/>
+        <segue reference="aI9-vx-gYH"/>
     </inferredMetricsTieBreakers>
 </document>

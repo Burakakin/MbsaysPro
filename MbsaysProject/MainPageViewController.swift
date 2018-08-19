@@ -16,7 +16,9 @@ class MainPageViewController: UIViewController {
     @IBOutlet weak var tableViewMain: UITableView!
     var ref: CollectionReference!
     
+    @IBOutlet weak var searchBarMain: UISearchBar!
     var mainPage = [[String: String]]()
+    var filteredMainPage = [[String: String]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +29,8 @@ class MainPageViewController: UIViewController {
         
        ref = Firestore.firestore().collection("mainPage")
        getData()
+        
+       
        
     }
 
@@ -56,6 +60,7 @@ class MainPageViewController: UIViewController {
                     let data: [String: String] = ["id": documentId, "title": documentTitle, "imageUrl": documentImageUrl, "description": documentDescription]
                     DispatchQueue.main.async {
                         self.mainPage.append(data)
+                        self.filteredMainPage = self.mainPage
                         self.tableViewMain.reloadData()
                     }
                 }
@@ -103,15 +108,15 @@ class MainPageViewController: UIViewController {
 extension MainPageViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return mainPage.count
+        return filteredMainPage.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "mainPageTableViewCell", for: indexPath) as! MainPageCustomTableViewCell
         
-        cell.mainPageTitle.text = (mainPage[indexPath.row]["title"])
-        cell.mainPageDescription.text = (mainPage[indexPath.row]["description"])
-        cell.mainPageImage.download(url: mainPage[indexPath.row]["imageUrl"]!)
+        cell.mainPageTitle.text = (filteredMainPage[indexPath.row]["title"])
+        cell.mainPageDescription.text = (filteredMainPage[indexPath.row]["description"])
+        cell.mainPageImage.download(url: filteredMainPage[indexPath.row]["imageUrl"]!)
         return cell
     }
     
@@ -132,6 +137,17 @@ extension MainPageViewController: UITableViewDataSource, UITableViewDelegate {
 
 }
 
+extension MainPageViewController: UISearchBarDelegate{
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filteredMainPage = mainPage.filter { $0["title"] == "\(searchText)"}
+        print(filteredMainPage)
+        DispatchQueue.main.async {
+            self.tableViewMain.reloadData()
+        }
+    }
+    
+    
+}
 
 extension UIImageView {
     

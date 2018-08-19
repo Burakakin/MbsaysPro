@@ -16,7 +16,7 @@ class MainPageViewController: UIViewController {
     @IBOutlet weak var tableViewMain: UITableView!
     var ref: CollectionReference!
     
-    var mainPage = [[String: Any]]()
+    var mainPage = [[String: String]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -109,9 +109,9 @@ extension MainPageViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "mainPageTableViewCell", for: indexPath) as! MainPageCustomTableViewCell
         
-        cell.mainPageTitle.text = (mainPage[indexPath.row]["title"] as! String)
-        cell.mainPageDescription.text = (mainPage[indexPath.row]["description"] as! String)
-        cell.mainPageImage.download(url: mainPage[indexPath.row]["imageUrl"] as! String)
+        cell.mainPageTitle.text = (mainPage[indexPath.row]["title"])
+        cell.mainPageDescription.text = (mainPage[indexPath.row]["description"])
+        cell.mainPageImage.download(url: mainPage[indexPath.row]["imageUrl"]!)
         return cell
     }
     
@@ -124,8 +124,8 @@ extension MainPageViewController: UITableViewDataSource, UITableViewDelegate {
         let rowSelected = (sender as! IndexPath).row
         if segue.identifier == "mainPageShowDetail" {
             if let mainPageDetailVC = segue.destination as? MainPageDetailViewController {
-                mainPageDetailVC.titleDetail = (mainPage[rowSelected]["title"] as! String)
-                mainPageDetailVC.documentId = (mainPage[rowSelected]["id"] as! String)
+                mainPageDetailVC.titleDetail = (mainPage[rowSelected]["title"])
+                mainPageDetailVC.documentId = (mainPage[rowSelected]["id"])
             }
         }
     }

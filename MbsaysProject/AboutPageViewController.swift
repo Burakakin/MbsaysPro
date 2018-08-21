@@ -50,6 +50,13 @@ extension AboutPageViewController: UICollectionViewDelegate, UICollectionViewDat
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "aboutPageHeaderCell", for: indexPath) as! AboutPageCollectionReusableView
+            headerView.headerLabel.text = "Slm"
+            return headerView
+       
+    }
     
     
     

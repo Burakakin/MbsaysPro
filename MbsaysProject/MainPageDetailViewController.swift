@@ -26,7 +26,7 @@ class MainPageDetailViewController: UIViewController {
     
     var documentId: String?
     var titleDetail: String?
-    var defaults = UserDefaults.standard
+    
    
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -45,6 +45,16 @@ class MainPageDetailViewController: UIViewController {
         print(documentId ?? "")
         ref = Firestore.firestore().collection("mainPage/\(documentId ?? "")/mainPageDetail")
         getMainPageDetail()
+        let defaults = UserDefaults.standard
+        if let buttonState = defaults.array(forKey: "buttonState") as? [[String: Any]] {
+            print(buttonState)  // [[price: 19.99, qty: 1, name: A], [price: 4.99, qty: 2, name: B]]"
+            let contains = buttonState.contains(where: { $0.keys.contains(documentId ?? "") })
+            print(contains)
+//            for item in buttonState {
+//                print(it[documentId ?? ""]  as! Bool)
+//                favButton.isSelected = item[(documentId ?? "")]  as! Bool
+//            }
+        }
 //        let dictionary: [String: Bool] = defaults.dictionary(forKey: "buttonState") as! [String : Bool]
 //        favButton.isSelected = (dictionary[documentId ?? ""] != nil)
 //        print(dictionary)
@@ -95,12 +105,16 @@ class MainPageDetailViewController: UIViewController {
     
     @IBAction func addFavButton(_ sender: UIButton) {
         
-        var userDefault = [[String: Bool]]()
+        
+        let defaults = UserDefaults.standard
+        var userDefault = [[String: Any]]()
+        userDefault = (defaults.array(forKey: "buttonState") as? [[String: Any]])!
         sender.isSelected = !sender.isSelected
-        let dictionaryUser : [String: Bool] = [(documentId ?? ""): sender.isSelected ]
+        let dictionaryUser : [String: Any] = [documentId ?? "": sender.isSelected ]
         userDefault.append(dictionaryUser)
         defaults.set(userDefault, forKey: "buttonState")
         print(userDefault)
+        
         
        
       

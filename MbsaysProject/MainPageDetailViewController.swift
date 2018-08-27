@@ -26,11 +26,14 @@ class MainPageDetailViewController: UIViewController {
     
     var documentId: String?
     var titleDetail: String?
+    var defaults = UserDefaults.standard
+   
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     lazy var context = appDelegate.persistentContainer.viewContext
     lazy var fav = ContentID(context: context)
     
+    @IBOutlet weak var favButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
        
@@ -42,6 +45,9 @@ class MainPageDetailViewController: UIViewController {
         print(documentId ?? "")
         ref = Firestore.firestore().collection("mainPage/\(documentId ?? "")/mainPageDetail")
         getMainPageDetail()
+//        let dictionary: [String: Bool] = defaults.dictionary(forKey: "buttonState") as! [String : Bool]
+//        favButton.isSelected = (dictionary[documentId ?? ""] != nil)
+//        print(dictionary)
         
     }
     
@@ -89,8 +95,16 @@ class MainPageDetailViewController: UIViewController {
     
     @IBAction func addFavButton(_ sender: UIButton) {
         
+        var userDefault = [[String: Bool]]()
+        sender.isSelected = !sender.isSelected
+        let dictionaryUser : [String: Bool] = [(documentId ?? ""): sender.isSelected ]
+        userDefault.append(dictionaryUser)
+        defaults.set(userDefault, forKey: "buttonState")
+        print(userDefault)
         
        
+      
+        
         if buttonClickedOnce {
             
             buttonClickedOnce = false

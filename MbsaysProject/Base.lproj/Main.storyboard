@@ -176,6 +176,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OiO-5S-4uj">
                                                 <rect key="frame" x="0.0" y="884" width="375" height="30"/>
                                                 <state key="normal" title="Fav"/>
+                                                <state key="selected" title="brk"/>
                                                 <connections>
                                                     <action selector="addFavButton:" destination="ZOI-gB-3Cr" eventType="touchUpInside" id="G7Q-38-PrF"/>
                                                 </connections>
@@ -229,6 +230,7 @@
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
                         <outlet property="detailImage" destination="djQ-5m-oTg" id="d6p-wY-TM6"/>
+                        <outlet property="favButton" destination="OiO-5S-4uj" id="2uO-8k-Nax"/>
                         <outlet property="mainPageDetailDescriptionlbl" destination="J3S-wK-Jct" id="py6-to-DwG"/>
                         <outlet property="mainPageDetailTitle" destination="jNA-Eo-edR" id="zwI-h2-ONI"/>
                     </connections>

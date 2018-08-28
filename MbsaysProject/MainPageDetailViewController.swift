@@ -17,7 +17,7 @@ class MainPageDetailViewController: UIViewController {
     
     
     
-    var buttonClickedOnce = true
+    
     var ref: CollectionReference!
     
     @IBOutlet weak var mainPageDetailTitle: UILabel!
@@ -47,29 +47,28 @@ class MainPageDetailViewController: UIViewController {
         getMainPageDetail()
         let defaults = UserDefaults.standard
         if let buttonState = defaults.array(forKey: "buttonState") as? [[String: Any]] {
-            print(buttonState)  // [[price: 19.99, qty: 1, name: A], [price: 4.99, qty: 2, name: B]]"
+            print("button \(buttonState)")  // [[price: 19.99, qty: 1, name: A], [price: 4.99, qty: 2, name: B]]"
             let contains = buttonState.contains(where: { $0.keys.contains(documentId ?? "") })
-            print(contains)
-//            for item in buttonState {
-//                print(it[documentId ?? ""]  as! Bool)
-//                favButton.isSelected = item[(documentId ?? "")]  as! Bool
-//            }
+            if contains == true {
+                favButton.isSelected = true
+            }
+            else{
+                favButton.isSelected = false
+            }
         }
-//        let dictionary: [String: Bool] = defaults.dictionary(forKey: "buttonState") as! [String : Bool]
-//        favButton.isSelected = (dictionary[documentId ?? ""] != nil)
-//        print(dictionary)
+
         
     }
     
     func alert(with title: String,for message: String ){
-    // create the alert
-    let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-    // add an action (button)
-    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-    // show the alert
-    self.present(alert, animated: true, completion: nil)
-    
-    
+        // create the alert
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+        
+        
     }
     
     func addFavorite(for mID : String) throws -> Bool {
@@ -109,32 +108,33 @@ class MainPageDetailViewController: UIViewController {
         let defaults = UserDefaults.standard
         var userDefault = [[String: Any]]()
         userDefault = (defaults.array(forKey: "buttonState") as? [[String: Any]])!
-        sender.isSelected = !sender.isSelected
-        let dictionaryUser : [String: Any] = [documentId ?? "": sender.isSelected ]
-        userDefault.append(dictionaryUser)
-        defaults.set(userDefault, forKey: "buttonState")
-        print(userDefault)
         
-        
-       
-      
-        
-        if buttonClickedOnce {
-            
-            buttonClickedOnce = false
+        let contains = userDefault.contains(where: { $0.keys.contains(documentId ?? "") })
+        if contains == true {
             do{
-                let _ = try addFavorite(for: documentId ?? "")
+                let _ = try deleteFav(for: documentId ?? "")
+//                let index = userDefault.index(where: { dic in
+//                    guard let value = dic[documentId ?? ""] as? Int
+//                        else{ return false }
+//                    return value == 5
+//                })
+//                if let index = index {
+//                    userDefault.remove(at: index)
+//                }
             } catch{
                 print("Error")
             }
-            
-            
         }
         else{
             
-            buttonClickedOnce = true
+            sender.isSelected = !sender.isSelected
+            let dictionaryUser : [String: Any] = [documentId ?? "": sender.isSelected ]
+            userDefault.append(dictionaryUser)
+            defaults.set(userDefault, forKey: "buttonState")
+            print(userDefault)
+            
             do{
-                let _ = try deleteFav(for: documentId ?? "")
+                let _ = try addFavorite(for: documentId ?? "")
             } catch{
                 print("Error")
             }

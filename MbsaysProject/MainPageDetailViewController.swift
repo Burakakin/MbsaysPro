@@ -45,6 +45,7 @@ class MainPageDetailViewController: UIViewController {
         print(documentId ?? "")
         ref = Firestore.firestore().collection("mainPage/\(documentId ?? "")/mainPageDetail")
         getMainPageDetail()
+        
         let defaults = UserDefaults.standard
         if let buttonState = defaults.array(forKey: "buttonState") as? [[String: Any]] {
             print("button \(buttonState)")  // [[price: 19.99, qty: 1, name: A], [price: 4.99, qty: 2, name: B]]"
@@ -60,29 +61,29 @@ class MainPageDetailViewController: UIViewController {
         
     }
     
-    func alert(with title: String,for message: String ){
-        // create the alert
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-        // add an action (button)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-        // show the alert
-        self.present(alert, animated: true, completion: nil)
-        
-        
-    }
+//    func alert(with title: String,for message: String ){
+//        // create the alert
+//        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+//        // add an action (button)
+//        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+//        // show the alert
+//        self.present(alert, animated: true, completion: nil)
+//
+//
+//    }
     
     func addFavorite(for mID : String) throws -> Bool {
         let request : NSFetchRequest<ContentID> = ContentID.fetchRequest()
         request.predicate = NSPredicate(format: "mID = %@", mID)
         request.fetchLimit = 1
         if let _ = try context.fetch(request).first {
-            alert(with: mID, for: "Zaten Ekledin")
-            //            print("Zaten ekledin")
+//            alert(with: mID, for: "Zaten Ekledin")
+//            //            print("Zaten ekledin")
             return false // record exists
         } else {
             fav.mID = mID
             try context.save()
-            alert(with: mID, for: "Eklendi")
+            //alert(with: mID, for: "Eklendi")
             return true // record added
         }
     }
@@ -94,7 +95,7 @@ class MainPageDetailViewController: UIViewController {
         if let deleteRecord = try context.fetch(request).first {
             context.delete(deleteRecord)
             try context.save()
-            alert(with: mID, for: "Sildin")
+           // alert(with: mID, for: "Sildin")
             return false // record deleted
         } else {
             return true
@@ -112,15 +113,15 @@ class MainPageDetailViewController: UIViewController {
         let contains = userDefault.contains(where: { $0.keys.contains(documentId ?? "") })
         if contains == true {
             do{
+                favButton.isSelected = false
                 let _ = try deleteFav(for: documentId ?? "")
-//                let index = userDefault.index(where: { dic in
-//                    guard let value = dic[documentId ?? ""] as? Int
-//                        else{ return false }
-//                    return value == 5
-//                })
-//                if let index = index {
-//                    userDefault.remove(at: index)
-//                }
+                
+                
+               let index = userDefault.index(where: { $0.keys.contains(documentId ?? "") })
+                print(index!)
+                userDefault.remove(at: index!)
+                defaults.set(userDefault, forKey: "buttonState")
+                
             } catch{
                 print("Error")
             }

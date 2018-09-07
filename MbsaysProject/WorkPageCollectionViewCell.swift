@@ -11,6 +11,7 @@ import UIKit
 class WorkPageCollectionViewCell: UICollectionViewCell {
     
     
+    @IBOutlet weak var workPageImageView: UIImageView!
     
     
     

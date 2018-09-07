@@ -32,7 +32,20 @@ class AboutPageViewController: UIViewController {
         appDelegate.centerContainer!.toggle(MMDrawerSide.left, animated: true, completion: nil)
     }
     
+    func socialMedia(web: String, id: String){
+        let webUrl = URL(string: "\(web)")
+        let idUrl = URL(string: "\(id)")
+        
+        if (UIApplication.shared.canOpenURL(idUrl!)) {
+            //FB installed
+            UIApplication.shared.open(idUrl!)
+        }
+        else{
+            UIApplication.shared.open(webUrl!)
+        }
+    }
   
+    
 
 }
 
@@ -46,6 +59,7 @@ extension AboutPageViewController: UICollectionViewDelegate, UICollectionViewDat
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "aboutPageCollectionCell", for: indexPath) as! AboutPageCustomCollectionViewCell
         cell.aboutPageNameLabel.text = teamDictionary[indexPath.row]["name"]
         cell.aboutPageTitleLabel.text = teamDictionary[indexPath.row]["title"]
+        
         
         return cell
     }

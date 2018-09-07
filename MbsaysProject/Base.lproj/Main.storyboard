@@ -396,8 +396,24 @@
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="147" height="205"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="seven.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="V34-bL-to4">
+                                                    <rect key="frame" x="0.0" y="0.0" width="147" height="169"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="169" id="dyB-hY-OS7"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
                                         </view>
                                         <color key="backgroundColor" red="0.0048598507420000003" green="0.096086271109999996" blue="0.57499289509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="V34-bL-to4" firstAttribute="top" secondItem="gCO-0T-p6b" secondAttribute="top" id="HuU-bd-Wne"/>
+                                            <constraint firstAttribute="trailing" secondItem="V34-bL-to4" secondAttribute="trailing" id="aPf-2d-4sg"/>
+                                            <constraint firstItem="V34-bL-to4" firstAttribute="leading" secondItem="gCO-0T-p6b" secondAttribute="leading" id="hFc-Zo-hDx"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="workPageImageView" destination="V34-bL-to4" id="s2l-84-4i2"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -429,7 +445,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cWr-QH-rmk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2249" y="1263"/>
+            <point key="canvasLocation" x="2248.8000000000002" y="1262.5187406296852"/>
         </scene>
         <!--Fav Content View Controller-->
         <scene sceneID="9O8-Xl-hb3">

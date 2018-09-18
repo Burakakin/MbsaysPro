@@ -27,7 +27,7 @@ class MainPageDetailViewController: UIViewController {
     var documentId: String?
     var titleDetail: String?
     
-   
+    
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     lazy var context = appDelegate.persistentContainer.viewContext
@@ -36,11 +36,11 @@ class MainPageDetailViewController: UIViewController {
     @IBOutlet weak var favButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
         
         
         mainPageDetailTitle.text = titleDetail
-       
+        
         
         print(documentId ?? "")
         ref = Firestore.firestore().collection("mainPage/\(documentId ?? "")/mainPageDetail")
@@ -57,28 +57,28 @@ class MainPageDetailViewController: UIViewController {
                 favButton.isSelected = false
             }
         }
-
+        
         
     }
     
-//    func alert(with title: String,for message: String ){
-//        // create the alert
-//        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-//        // add an action (button)
-//        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-//        // show the alert
-//        self.present(alert, animated: true, completion: nil)
-//
-//
-//    }
+    //    func alert(with title: String,for message: String ){
+    //        // create the alert
+    //        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+    //        // add an action (button)
+    //        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+    //        // show the alert
+    //        self.present(alert, animated: true, completion: nil)
+    //
+    //
+    //    }
     
     func addFavorite(for mID : String) throws -> Bool {
         let request : NSFetchRequest<ContentID> = ContentID.fetchRequest()
         request.predicate = NSPredicate(format: "mID = %@", mID)
         request.fetchLimit = 1
         if let _ = try context.fetch(request).first {
-//            alert(with: mID, for: "Zaten Ekledin")
-//            //            print("Zaten ekledin")
+            //            alert(with: mID, for: "Zaten Ekledin")
+            //            //            print("Zaten ekledin")
             return false // record exists
         } else {
             fav.mID = mID
@@ -95,7 +95,7 @@ class MainPageDetailViewController: UIViewController {
         if let deleteRecord = try context.fetch(request).first {
             context.delete(deleteRecord)
             try context.save()
-           // alert(with: mID, for: "Sildin")
+            // alert(with: mID, for: "Sildin")
             return false // record deleted
         } else {
             return true
@@ -115,9 +115,7 @@ class MainPageDetailViewController: UIViewController {
             do{
                 favButton.isSelected = false
                 let _ = try deleteFav(for: documentId ?? "")
-                
-                
-               let index = userDefault.index(where: { $0.keys.contains(documentId ?? "") })
+                let index = userDefault.index(where: { $0.keys.contains(documentId ?? "") })
                 print(index!)
                 userDefault.remove(at: index!)
                 defaults.set(userDefault, forKey: "buttonState")
@@ -158,9 +156,9 @@ class MainPageDetailViewController: UIViewController {
         }
         
     }
-
- 
-
+    
+    
+    
 }
 
 

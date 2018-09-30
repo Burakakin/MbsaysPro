@@ -37,7 +37,7 @@ class MainPageViewController: UIViewController {
     @IBAction func leftSideButtonTapped(_ sender: Any) {
         let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.centerContainer!.toggle(MMDrawerSide.left, animated: true, completion: nil)
-
+        //brk
     }
     
    

@@ -16,7 +16,7 @@ class MainPageViewController: UIViewController {
     @IBOutlet weak var tableViewMain: UITableView!
     var ref: CollectionReference!
     
-    var array = [5,10,2,4,1,12]
+    
     
     @IBOutlet weak var searchBarMain: UISearchBar!
     var mainPage = [[String: String]]()
@@ -94,10 +94,29 @@ class MainPageViewController: UIViewController {
     
     @IBAction func sortingAlgorithm(_ sender: Any) {
        
+        var array = [Int]()
+        for index in mainPage {
+            array.append(Int(index["number"]!)!)
+        }
+        
         let newArray = mergeSort(array)
-        array = newArray
-        mainPage.removeAll()
-        getData()
+       
+        for i in 0..<array.count {
+            var count = 0
+            
+            let index = mainPage.firstIndex(where: {$0["number"] == "\(newArray[i])"})
+            let partialArray = mainPage[index!]
+            print(index!)
+            mainPage.remove(at: index!)
+            mainPage.insert(partialArray, at: count)
+            count += 1
+           
+        }
+        DispatchQueue.main.async {
+            self.tableViewMain.reloadData()
+        }
+       print(mainPage)
+        
     }
     
     
@@ -113,7 +132,8 @@ class MainPageViewController: UIViewController {
                     let documentTitle = document.data()["title"] as! String
                     let documentImageUrl = document.data()["imageUrl"] as! String
                     let documentDescription = document.data()["description"] as! String
-                    let data: [String: String] = ["id": documentId, "title": documentTitle, "imageUrl": documentImageUrl, "description": documentDescription]
+                    let documentNumber = document.data()["number"] as! Int
+                    let data: [String: String] = ["id": documentId, "title": documentTitle, "imageUrl": documentImageUrl, "description": documentDescription, "number": "\(documentNumber)"]
                     DispatchQueue.main.async {
                         self.mainPage.append(data)
                         self.filteredMainPage = self.mainPage
@@ -140,10 +160,10 @@ extension MainPageViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "mainPageTableViewCell", for: indexPath) as! MainPageCustomTableViewCell
         
-        cell.mainPageTitle.text = (filteredMainPage[indexPath.row]["title"])
-        cell.mainPageDescription.text = (filteredMainPage[indexPath.row]["description"])
-        cell.mainPageImage.download(url: filteredMainPage[indexPath.row]["imageUrl"]!)
-        cell.mainPageLast.text = String(array[indexPath.row])
+        cell.mainPageTitle.text = (mainPage[indexPath.row]["title"])
+        cell.mainPageDescription.text = (mainPage[indexPath.row]["description"])
+        cell.mainPageImage.download(url: mainPage[indexPath.row]["imageUrl"]!)
+        cell.mainPageLast.text = "\(mainPage[indexPath.row]["number"] ?? "")"
         return cell
     }
     

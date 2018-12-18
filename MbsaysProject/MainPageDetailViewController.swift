@@ -119,13 +119,13 @@ class MainPageDetailViewController: UIViewController {
                 print(index!)
                 userDefault.remove(at: index!)
                 defaults.set(userDefault, forKey: "buttonState")
-                
+
             } catch{
                 print("Error")
             }
         }
         else{
-            
+        
             sender.isSelected = !sender.isSelected
             let dictionaryUser : [String: Any] = [documentId ?? "": sender.isSelected ]
             userDefault.append(dictionaryUser)

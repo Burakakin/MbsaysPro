@@ -14,7 +14,7 @@ class LeftSideMenuViewController: UIViewController {
         super.viewDidLoad()
     }
 
-     var menuItem = ["Ana Sayfa","Hakkımızda","İşlerimiz","İçeriklerim","İletişim"]
+     var menuItem = ["Ana Sayfa","İçeriklerim"]
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -58,11 +58,7 @@ class LeftSideMenuViewController: UIViewController {
     
     @IBAction func aboutDeveloper(_ sender: UIButton) {
         
-        let centerViewController = self.storyboard?.instantiateViewController(withIdentifier: "AboutDeveloperViewController") as! AboutDeveloperViewController
-        let centerNavController = UINavigationController(rootViewController: centerViewController)
-        let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.centerContainer!.centerViewController = centerNavController
-        appDelegate.centerContainer!.toggle(MMDrawerSide.left, animated: true, completion: nil)
+       
     }
     
     
@@ -96,18 +92,6 @@ extension LeftSideMenuViewController: UITableViewDelegate, UITableViewDataSource
             appDelegate.centerContainer!.centerViewController = centerNavController
             appDelegate.centerContainer!.toggle(MMDrawerSide.left, animated: true, completion: nil)
         case 1:
-            let centerViewController = self.storyboard?.instantiateViewController(withIdentifier: "AboutPageViewController") as! AboutPageViewController
-            let centerNavController = UINavigationController(rootViewController: centerViewController)
-            let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
-            appDelegate.centerContainer!.centerViewController = centerNavController
-            appDelegate.centerContainer!.toggle(MMDrawerSide.left, animated: true, completion: nil)
-        case 2:
-            let centerViewController = self.storyboard?.instantiateViewController(withIdentifier: "WorkPageViewController") as! WorkPageViewController
-            let centerNavController = UINavigationController(rootViewController: centerViewController)
-            let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
-            appDelegate.centerContainer!.centerViewController = centerNavController
-            appDelegate.centerContainer!.toggle(MMDrawerSide.left, animated: true, completion: nil)
-        case 3:
             let centerViewController = self.storyboard?.instantiateViewController(withIdentifier: "FavContentViewController") as! FavContentViewController
             let centerNavController = UINavigationController(rootViewController: centerViewController)
             let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate

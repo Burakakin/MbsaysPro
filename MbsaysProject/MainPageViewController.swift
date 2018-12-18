@@ -16,6 +16,8 @@ class MainPageViewController: UIViewController {
     @IBOutlet weak var tableViewMain: UITableView!
     var ref: CollectionReference!
     
+    var array = [5,10,2,4,1,12]
+    
     @IBOutlet weak var searchBarMain: UISearchBar!
     var mainPage = [[String: String]]()
     var filteredMainPage = [[String: String]]()
@@ -40,15 +42,68 @@ class MainPageViewController: UIViewController {
         //brk
     }
     
-   
-    @IBAction func sortingAlgorithm(_ sender: Any) {
+    func mergeSort<T: Comparable>(_ array: [T]) -> [T] {
+        guard array.count > 1 else { return array }
         
+        let middleIndex = array.count / 2
+        
+        let leftArray = mergeSort(Array(array[0..<middleIndex]))
+        let rightArray = mergeSort(Array(array[middleIndex..<array.count]))
+        
+        
+        return merge(leftArray, rightArray)
+    }
+    
+    func merge<T: Comparable>(_ left: [T], _ right: [T]) -> [T] {
+        var leftIndex = 0
+        var rightIndex = 0
+        
+        var orderedArray: [T] = []
+        
+        while leftIndex < left.count && rightIndex < right.count {
+            let leftElement = left[leftIndex]
+            let rightElement = right[rightIndex]
+            
+            if leftElement < rightElement {
+                orderedArray.append(leftElement)
+                leftIndex += 1
+            } else if leftElement > rightElement {
+                orderedArray.append(rightElement)
+                rightIndex += 1
+            } else {
+                orderedArray.append(leftElement)
+                leftIndex += 1
+                orderedArray.append(rightElement)
+                rightIndex += 1
+            }
+        }
+        
+        while leftIndex < left.count {
+            orderedArray.append(left[leftIndex])
+            leftIndex += 1
+        }
+        
+        while rightIndex < right.count {
+            orderedArray.append(right[rightIndex])
+            rightIndex += 1
+        }
+        
+        return orderedArray
+    }
+    
+    
+    @IBAction func sortingAlgorithm(_ sender: Any) {
+       
+        let newArray = mergeSort(array)
+        array = newArray
+        mainPage.removeAll()
+        getData()
     }
     
     
     
     func getData(){
-        ref.order(by: "time", descending: true).getDocuments() { (querySnapshot, err) in
+        ref.getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
@@ -70,36 +125,6 @@ class MainPageViewController: UIViewController {
     }
     
     
-    
-    
-//    func update(updateData: [String: Any], dataid: String){
-//
-//        let storageRef = Storage.storage().reference().child("mainPage/\(updateData["title"] ?? "").jpg")
-//        // Fetch the download URL
-//        storageRef.downloadURL { url, error in
-//            if let error = error {
-//                // Handle any errors
-//                print(error)
-//            } else {
-//                guard let downloadURL = url else { return }
-//                let urlString = downloadURL.absoluteString
-//                self.ref.document("\(dataid)").updateData(["imageUrl": urlString]) { err in
-//                    if let err = err {
-//                        print("Error updating document: \(err)")
-//                    } else {
-//                        DispatchQueue.main.async {
-//                            self.mainPage.append(updateData)
-//                            self.tableViewMain.reloadData()
-//                        }
-//                        print("Document successfully updated")
-//                    }
-//                }
-//            }
-//        }
-//    }
-    
-    
-    
 }
 
 
@@ -118,6 +143,7 @@ extension MainPageViewController: UITableViewDataSource, UITableViewDelegate {
         cell.mainPageTitle.text = (filteredMainPage[indexPath.row]["title"])
         cell.mainPageDescription.text = (filteredMainPage[indexPath.row]["description"])
         cell.mainPageImage.download(url: filteredMainPage[indexPath.row]["imageUrl"]!)
+        cell.mainPageLast.text = String(array[indexPath.row])
         return cell
     }
     

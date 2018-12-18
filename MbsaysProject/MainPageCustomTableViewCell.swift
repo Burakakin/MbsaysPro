@@ -14,6 +14,7 @@ class MainPageCustomTableViewCell: UITableViewCell {
     @IBOutlet weak var mainPageDescription: UILabel!
     @IBOutlet weak var mainPageImage: UIImageView!
     @IBOutlet weak var favButton: UIButton!
+    @IBOutlet weak var mainPageLast: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

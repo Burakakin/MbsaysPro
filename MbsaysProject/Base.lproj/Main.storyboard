@@ -98,6 +98,7 @@
                                         <connections>
                                             <outlet property="mainPageDescription" destination="wOB-D6-JzO" id="5gp-zw-kWw"/>
                                             <outlet property="mainPageImage" destination="rKe-cl-aGp" id="rn7-m9-hLF"/>
+                                            <outlet property="mainPageLast" destination="qQa-RX-gaX" id="5Y4-SF-JBi"/>
                                             <outlet property="mainPageTitle" destination="mTy-kF-1G8" id="lx8-ZF-dcT"/>
                                         </connections>
                                     </tableViewCell>
@@ -160,7 +161,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IJE-zZ-Jap">
-                                <rect key="frame" x="0.0" y="20" width="375" height="980"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="936"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q90-lQ-kSE" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="980"/>
@@ -665,6 +666,6 @@
         <image name="seven.jpg" width="612" height="612"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="G93-1X-Vy1"/>
+        <segue reference="aI9-vx-gYH"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -41,6 +41,9 @@ class MainPageViewController: UIViewController {
     }
     
    
+    @IBAction func sortingAlgorithm(_ sender: Any) {
+        
+    }
     
     
     

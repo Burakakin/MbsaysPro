@@ -95,27 +95,23 @@ class MainPageViewController: UIViewController {
     @IBAction func sortingAlgorithm(_ sender: Any) {
        
         var array = [Int]()
-        for index in mainPage {
+        for index in filteredMainPage {
             array.append(Int(index["number"]!)!)
         }
         
         let newArray = mergeSort(array)
        
         for i in 0..<array.count {
-            var count = 0
             
-            let index = mainPage.firstIndex(where: {$0["number"] == "\(newArray[i])"})
-            let partialArray = mainPage[index!]
-            print(index!)
-            mainPage.remove(at: index!)
-            mainPage.insert(partialArray, at: count)
-            count += 1
-           
+            let index = filteredMainPage.firstIndex(where: {$0["number"] == "\(newArray[i])"})
+            let partialArray = filteredMainPage[index!]
+            filteredMainPage.remove(at: index!)
+            filteredMainPage.insert(partialArray, at: filteredMainPage.endIndex)
+            
         }
         DispatchQueue.main.async {
             self.tableViewMain.reloadData()
         }
-       print(mainPage)
         
     }
     
@@ -160,10 +156,10 @@ extension MainPageViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "mainPageTableViewCell", for: indexPath) as! MainPageCustomTableViewCell
         
-        cell.mainPageTitle.text = (mainPage[indexPath.row]["title"])
-        cell.mainPageDescription.text = (mainPage[indexPath.row]["description"])
-        cell.mainPageImage.download(url: mainPage[indexPath.row]["imageUrl"]!)
-        cell.mainPageLast.text = "\(mainPage[indexPath.row]["number"] ?? "")"
+        cell.mainPageTitle.text = (filteredMainPage[indexPath.row]["title"])
+        cell.mainPageDescription.text = (filteredMainPage[indexPath.row]["description"])
+        cell.mainPageImage.download(url: filteredMainPage[indexPath.row]["imageUrl"]!)
+        cell.mainPageLast.text = "\(filteredMainPage[indexPath.row]["number"] ?? "")"
         return cell
     }
     

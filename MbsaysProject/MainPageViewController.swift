@@ -29,7 +29,7 @@ class MainPageViewController: UIViewController {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         
-       ref = Firestore.firestore().collection("mainPage")
+       
        getData()
        
     }
@@ -118,6 +118,7 @@ class MainPageViewController: UIViewController {
     
     
     func getData(){
+        ref = Firestore.firestore().collection("mainPage")
         ref.getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
